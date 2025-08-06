@@ -7,4 +7,4 @@ const useSchema = new mongoose.Schema({
     CreatedAt : {type:Date,default:Date.now}
 });
       
-export const UserModule = mongoose.model("user",useSchema);
+export const User = mongoose.model("user",useSchema);

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { UserModule } from "../Model/User";
+import { User } from "../Model/User.js";
 
 export const isAuth = async (req, res, next) => {
     const token = req.header("Auth");
@@ -12,7 +12,7 @@ export const isAuth = async (req, res, next) => {
     const decode = jwt.verify(token, process.env.JWT);
     const id = decode.userId;
 
-    const user = await UserModule.findById(id);
+    const user = await User.findById(id);
 
     if (!id)
         return res.json({
